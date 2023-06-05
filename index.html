@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "be293b71ee544b23aea685c62b931f55"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+</script>
+                        
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -102,6 +110,92 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    /* try {
+
+      // code...
+    
+    } catch (err) {
+    
+      // error handling
+    
+    } */
+    try {
+      errorBtns.addEventListener('click', () => {
+        console.log('errorBtns was clicked');
+      }) 
+    } catch (err) {
+        throw new SyntaxError('errorBtns is an array');
+    } finally {
+        console.log('finished testing errorBtns array')
+
+        // go through every button in errorBtns array and add its corresponding 
+        // console testing 
+        for (let i=0; i<errorBtns.length; i++) {
+          errorBtns[i].addEventListener('click', () => {
+            switch (i) {
+              //www.w3schools.com/js/js_switch.asp
+              case 0: 
+                console.log('Console Log Demo');
+                break;
+              case 1: 
+                console.error('Console Error Demo');
+                break;
+              case 2: 
+                console.count('Count Button');
+                break;
+              case 3:
+                console.warn('Console Warn Demo');
+                break;
+              case 4: 
+                console.assert(true, 'True Assertion'); 
+                console.assert(false, 'False Assertion');
+                break; 
+              case 5: 
+                console.clear('Console Clear Demo');
+                break; 
+              case 6: 
+                console.dir(document.location);
+                break; 
+              case 7: 
+                console.dirxml(document.head);
+                break; 
+              case 8: 
+                console.group('Console Group Start'); 
+                break; 
+              case 9:
+                console.groupEnd('Console Group End');
+                break; 
+              case 10: 
+                console.table(['A', 'B', 'C']);
+                break; 
+              case 11: 
+                console.time();
+                break; 
+              case 12: 
+                console.timeEnd();
+                break; 
+              case 13: 
+                function deepest() {
+                  console.trace('console.trace');
+                }
+                function deeper(){
+                  deepest();
+                }
+                function deep(){
+                  deeper();
+                }
+                function handleBtnClick(){
+                  deep();
+                }
+                handleBtnClick();
+                break; 
+              case 14:
+                throw new Error('Triggered global error');
+                break;
+            }
+          })
+        }
+    }
   </script>
 </body>
 
